@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio | Développeur Web</title>
+    <title>Mihajarak | Développeur Web</title>
     <style>
-        /* Variables de couleurs et typographie */
+        /* CSS VARIABLES FOR EASY COLOR CHANGES */
         :root {
-            --bg-color: #f4f7f6;
-            --text-color: #2c3e50;
-            --primary-color: #2980b9;
-            --secondary-color: #34495e;
-            --accent-color: #e74c3c;
+            --gradient-bg: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Loko maizina sy bika ho an'ny lohateny */
+            --primary-color: #00b4db; /* Loko manga mamirapiratra ho an'ny lohateny madinika */
+            --secondary-color: #0083b0;
+            --text-color: #333333;
+            --light-bg: #f8f9fa;
             --card-bg: #ffffff;
+            --accent-color: #ff416c; /* Loko mena/mavokely ho an'ny tarif */
         }
 
-        /* Styles globaux */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -23,164 +23,229 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
             color: var(--text-color);
             line-height: 1.6;
-            padding: 0;
         }
 
+        /* HEADER MODERNE */
         header {
-            background-color: var(--secondary-color);
+            background: var(--gradient-bg);
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        /* SARY BORIBORY */
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
 
         header p {
             font-size: 1.2rem;
-            opacity: 0.9;
+            opacity: 0.85;
+            font-weight: 300;
         }
 
-        /* Conteneur principal */
+        /* CONTAINER */
         .container {
-            max-width: 800px;
-            margin: 30px auto;
+            max-width: 850px;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
-        /* Sections / Cartes */
+        /* CARDS MAHASARIKA */
         .card {
             background: var(--card-bg);
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Miakatra kely rehefa lalovan'ny souris */
         }
 
         h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid #ecf0f1;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        /* Liste des compétences */
-        .skills-list {
-            list-style: none;
-        }
-
-        .skills-list li {
-            margin-bottom: 10px;
-            padding-left: 15px;
-            position: relative;
-        }
-
-        .skills-list li::before {
-            content: "✔";
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
-        }
-
-        /* Projets */
-        .project-title {
-            font-weight: bold;
-            font-size: 1.2rem;
             color: var(--secondary-color);
-            margin-top: 10px;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* COMPÉTENCES */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: #eef9ff;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-weight: 500;
+            color: #1d6a8a;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* PROJET */
+        .project-box {
+            background: #fafafa;
+            border: 1px solid #eeeeee;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
         }
 
         .stack {
             display: inline-block;
-            background: #e8f4fd;
-            color: var(--primary-color);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            margin-top: 5px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 10px;
             font-weight: 500;
         }
 
-        /* Tarifs */
-        .price {
-            font-size: 1.2rem;
+        /* TARIFS */
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        
+        .price-row:last-child {
+            border-bottom: none;
+        }
+
+        .price-tag {
+            font-size: 1.3rem;
             font-weight: bold;
             color: var(--accent-color);
+            background: #fff0f3;
+            padding: 4px 12px;
+            border-radius: 8px;
         }
 
-        /* Liens */
-        .links a {
+        /* LIENS / BUTTONS */
+        .links-flex {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
             display: inline-block;
-            margin-right: 15px;
-            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
         }
 
-        .links a:hover {
-            text-decoration: underline;
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,180,219,0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 15px rgba(0,180,219,0.5);
         }
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             font-size: 0.9rem;
-            color: #7f8c8d;
+            color: #bdc3c7;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>[Mihaja Fetra RAKOTONIAINA]</h1>
+        <img src="avatar.png" alt="Mihajarak" class="profile-img">
+        <h1>Mihajarak</h1>
         <p>Développeur Web Front-end Junior</p>
     </header>
 
     <div class="container">
 
         <div class="card">
-            <h2>Mes Compétences</h2>
-            <ul class="skills-list">
-                <li><strong>HTML5 & CSS3</strong> : Intégration de maquettes, sémantique web et structures modernes.</li>
-                <li><strong>Responsive Design</strong> : Création de sites entièrement adaptés aux mobiles, tablettes et ordinateurs (Flexbox, Grid).</li>
-                <li><strong>JavaScript Vanilla (ES6+)</strong> : Manipulation dynamique du DOM, gestion des événements et interactivité.</li>
-            </ul>
+            <h2>💻 Mes Compétences</h2>
+            <div class="skills-grid">
+                <div class="skill-item">HTML5 & CSS3</div>
+                <div class="skill-item">JavaScript (ES6+)</div>
+                <div class="skill-item">Responsive Design</div>
+                <div class="skill-item">Flexbox & CSS Grid</div>
+            </div>
         </div>
 
         <div class="card">
-            <h2>Mon Projet Réel</h2>
-            <div class="project-title">Portfolio Professionnel</div>
-            <p>Conception et intégration de mon site vitrine personnel afin de présenter mes compétences en développement web et mes réalisations. Le site intègre un design moderne, des animations fluides au survol, et un formulaire de contact interactif validé côté client.</p>
-            <div class="stack">Stack technique : HTML5, CSS3, JavaScript Vanilla</div>
+            <h2>🚀 Mon Projet Réel</h2>
+            <div class="project-box">
+                <div class="project-title">Portfolio Professionnel</div>
+                <p>Conception et intégration de mon site vitrine personnel afin de présenter mes compétences en développement web et mes réalisations. Le site intègre un design moderne, des animations au survol et un code propre.</p>
+                <div class="stack">Stack : HTML5, CSS3, JavaScript</div>
+            </div>
         </div>
 
         <div class="card">
-            <h2>Tarifs Freelance</h2>
-            <p>Disponible pour des missions en freelance sous deux modes de tarification :</p>
-            <p style="margin-top: 10px;">• <strong>Taux Horaire :</strong> <span class="price">15$ / heure</span></p>
-            <p>• <strong>Tarif au Forfait :</strong> À partir de <span class="price">150$</span> pour un site vitrine simple ou une Landing Page.</p>
+            <h2>💰 Tarifs Freelance</h2>
+            <div class="price-row">
+                <span>Taux Horaire :</span>
+                <span class="price-tag">15$ / heure</span>
+            </div>
+            <div class="price-row">
+                <span>Tarif au Forfait (Site vitrine / Landing Page) :</span>
+                <span class="price-tag">À partir de 150$</span>
+            </div>
         </div>
 
         <div class="card">
-            <h2>Mes Profils & Liens</h2>
-            <p class="links">
-                <a href="#" target="_blank">Mon GitHub</a>
-                <a href="#" target="_blank">Mon Profil Upwork</a>
-                <a href="#" target="_blank">Mon LinkedIn</a>
-            </p>
+            <h2>🔗 Mes Profils & Liens</h2>
+            <div class="links-flex">
+                <a href="https://github.com/Mihajarak" target="_blank" class="btn btn-primary">Mon GitHub</a>
+                <a href="#" target="_blank" class="btn btn-primary">Mon Upwork</a>
+                <a href="#" target="_blank" class="btn btn-primary">Mon LinkedIn</a>
+            </div>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 - Tous droits réservés.</p>
+        <p>&copy; 2026 Mihajarak. Tous droits réservés.</p>
     </footer>
 
 </body>
