@@ -1,252 +1,148 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mihaja Rakotoniaina | Développeur Web</title>
-    <style>
-        /* CSS VARIABLES FOR EASY COLOR CHANGES */
-        :root {
-            --gradient-bg: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Loko maizina sy bika ho an'ny lohateny */
-            --primary-color: #02ffea; /* Loko manga mamirapiratra ho an'ny lohateny madinika */
-            --secondary-color: #0083b0;
-            --text-color: #333333;
-            --light-bg: #f8f9fa;
-            --card-bg: #ffffff;
-            --accent-color: #ff416c; /* Loko mena/mavokely ho an'ny tarif */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mihaja Rakotoniaina | Développeur Web & Mobile</title>
+  <meta name="description" content="Développeur Web & Mobile et créateur de contenu — sites, applications, photographie, montage vidéo et rédaction pour clients internationaux.">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <meta property="og:title" content="Mihaja Rakotoniaina | Développeur Web & Mobile">
+  <meta property="og:description" content="Développeur Web & Mobile et créateur de contenu — sites, applications, photographie, montage vidéo et rédaction pour clients internationaux.">
+  <meta property="og:image" content="https://mihajarak.github.io/portfolio/avatar.png">
+  <meta property="og:url" content="https://mihajarak.github.io/portfolio/">
+  <meta property="og:type" content="website">
 
-        body {
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light-bg);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mihaja Rakotoniaina | Développeur Web & Mobile">
+  <meta name="twitter:description" content="Développeur Web & Mobile et créateur de contenu pour clients internationaux.">
+  <meta name="twitter:image" content="https://mihajarak.github.io/portfolio/avatar.png">
 
-        /* HEADER MODERNE */
-        header {
-            background: var(--gradient-bg);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        }
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #0f1b2d; --mint: #00d4a4; --mint2: #00b890;
+    --cream: #f5f3ee; --cream2: #ede9e0;
+    --text-dark: #0f1b2d; --text-mid: #4a5568; --text-light: #8a9ab0;
+  }
+  body { font-family: 'DM Sans', 'Segoe UI', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.6; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
 
-        /* SARY BORIBORY */
-        .profile-img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
+  .profile { text-align: center; margin-bottom: 2.5rem; }
+  .profile img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(0,212,164,0.25); margin-bottom: 1rem; }
+  .profile h1 { font-size: 1.8rem; font-weight: 500; margin-bottom: 4px; }
+  .profile .role { color: var(--mint2); font-size: 0.95rem; font-weight: 500; }
 
-        header h1 {
-            font-size: 2.8rem;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
+  h2 { font-size: 1.1rem; font-weight: 500; margin: 2.2rem 0 0.9rem; color: var(--navy); border-bottom: 2px solid var(--cream2); padding-bottom: 8px; }
 
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.85;
-            font-weight: 300;
-        }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { background: white; border: 1px solid var(--cream2); border-radius: 20px; padding: 6px 14px; font-size: 0.82rem; color: var(--text-mid); }
 
-        /* CONTAINER */
-        .container {
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+  .project { background: white; border: 1px solid var(--cream2); border-radius: 10px; padding: 1rem 1.2rem; margin-bottom: 10px; }
+  .project-title { font-weight: 500; font-size: 0.95rem; margin-bottom: 4px; }
+  .project-desc { font-size: 0.85rem; color: var(--text-mid); margin-bottom: 6px; }
+  .project-stack { font-size: 0.75rem; color: var(--text-light); }
+  .project-link { display: inline-block; margin-top: 6px; font-size: 0.8rem; color: var(--mint2); text-decoration: none; font-weight: 500; }
+  .project-link:hover { text-decoration: underline; }
 
-        /* CARDS MAHASARIKA */
-        .card {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-            transition: transform 0.3s ease;
-        }
+  .tarif-cat { font-size: 0.72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--mint2); font-weight: 600; margin: 1.2rem 0 6px; }
+  .tarif-cat:first-child { margin-top: 0; }
+  .tarif-row { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--cream2); font-size: 0.88rem; }
+  .tarif-row:last-child { border-bottom: none; }
+  .tarif-name { color: var(--text-dark); }
+  .tarif-price { color: var(--mint2); font-weight: 500; white-space: nowrap; margin-left: 12px; }
 
-        .card:hover {
-            transform: translateY(-5px); /* Miakatra kely rehefa lalovan'ny souris */
-        }
+  .links-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .link-pill { display: flex; align-items: center; gap: 8px; background: white; border: 1px solid var(--cream2); border-radius: 30px; padding: 8px 16px; font-size: 0.85rem; font-weight: 500; color: var(--text-dark); text-decoration: none; transition: all .2s; }
+  .link-pill:hover { border-color: var(--mint); color: var(--mint2); }
+  .link-pill img { width: 15px; height: 15px; vertical-align: middle; }
 
-        h2 {
-            color: var(--secondary-color);
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* COMPÉTENCES */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .skill-item {
-            background: #eef9ff;
-            padding: 12px 15px;
-            border-radius: 8px;
-            font-weight: 500;
-            color: #1d6a8a;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        /* PROJET */
-        .project-box {
-            background: #fafafa;
-            border: 1px solid #eeeeee;
-            padding: 20px;
-            border-radius: 12px;
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }
-
-        .stack {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 3px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-top: 10px;
-            font-weight: 500;
-        }
-
-        /* TARIFS */
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #f1f1f1;
-        }
-        
-        .price-row:last-child {
-            border-bottom: none;
-        }
-
-        .price-tag {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            background: #fff0f3;
-            padding: 4px 12px;
-            border-radius: 8px;
-        }
-
-        /* LIENS / BUTTONS */
-        .links-flex {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            box-shadow: 0 4px 10px rgba(0,180,219,0.3);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 6px 15px rgba(0,180,219,0.5);
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 0.9rem;
-            color: #bdc3c7;
-        }
-    </style>
+  footer { text-align: center; margin-top: 3rem; font-size: 0.78rem; color: var(--text-light); }
+</style>
 </head>
 <body>
+<div class="wrap">
 
-    <header>
-        <img src="avatar.png" alt="Mihajarak" class="profile-img">
-        <h1>Mihajarak</h1>
-        <p>Développeur Web Front-end Junior</p>
-    </header>
+  <div class="profile">
+    <img src="avatar.png" alt="Mihajarak">
+    <h1>Mihajarak</h1>
+    <div class="role">Développeur Web & Mobile · Créateur de contenu</div>
+  </div>
 
-    <div class="container">
+  <h2>💻 Mes compétences</h2>
+  <div class="chip-row">
+    <span class="chip">HTML5 & CSS3</span>
+    <span class="chip">JavaScript (ES6+)</span>
+    <span class="chip">Flexbox & CSS Grid</span>
+    <span class="chip">Responsive Design</span>
+    <span class="chip">Flutter</span>
+    <span class="chip">React Native</span>
+    <span class="chip">Photographie</span>
+    <span class="chip">Montage vidéo</span>
+    <span class="chip">Rédaction de contenu</span>
+    <span class="chip">Contenu de vente</span>
+  </div>
 
-        <div class="card">
-            <h2>💻 Mes Compétences</h2>
-            <div class="skills-grid">
-                <div class="skill-item">HTML5 & CSS3</div>
-                <div class="skill-item">JavaScript (ES6+)</div>
-                <div class="skill-item">Responsive Design</div>
-                <div class="skill-item">Flexbox & CSS Grid</div>
-            </div>
-        </div>
+  <h2>🚀 Mes réalisations</h2>
 
-        <div class="card">
-            <h2>🚀 Mon Projet Réel</h2>
-            <div class="project-box">
-                <div class="project-title">Portfolio Professionnel</div>
-                <p>Conception et intégration de mon site vitrine personnel afin de présenter mes compétences en développement web et mes réalisations. Le site intègre un design moderne, des animations au survol et un code propre.</p>
-                <div class="stack">Stack : HTML5, CSS3, JavaScript</div>
-            </div>
-        </div>
+  <div class="project">
+    <div class="project-title">Portfolio Professionnel</div>
+    <div class="project-desc">Conception et intégration de mon site vitrine personnel : design moderne, animations au survol, code propre.</div>
+    <div class="project-stack">HTML5 · CSS3 · JavaScript</div>
+  </div>
 
-        <div class="card">
-            <h2>💰 Tarifs Freelance</h2>
-            <div class="price-row">
-                <span>Taux Horaire :</span>
-                <span class="price-tag">15$ / heure</span>
-            </div>
-            <div class="price-row">
-                <span>Tarif au Forfait (Site vitrine / Landing Page) :</span>
-                <span class="price-tag">À partir de 150$</span>
-            </div>
-        </div>
+  <div class="project">
+    <div class="project-title">Mify — Compression de fichiers</div>
+    <div class="project-desc">Application mobile de compression vidéo, image et PDF. Architecture multi-onglets, support EN/FR/ES.</div>
+    <div class="project-stack">Flutter · ffmpeg_kit · i18n</div>
+  </div>
 
-        <div class="card">
-            <h2>🔗 Mes Profils & Liens</h2>
-            <div class="links-flex">
-                <a href="https://github.com/Mihajarak" target="_blank" class="btn btn-primary">Mon GitHub</a>
-                <a href="https://www.upwork.com/freelancers/~01b8c8b8c8b8c8b8c8" target="_blank" class="btn btn-primary">Mon Upwork</a>
-                <a href="https://www.linkedin.com/in/mihaja-fetra-rakotoniaina-749553399/" target="_blank" class="btn btn-primary">Mon LinkedIn</a>
-            </div>
-        </div>
+  <div class="project">
+    <div class="project-title">TOX Walker Photography</div>
+    <div class="project-desc">Site vitrine pour un studio de photographie professionnelle : portfolio client et prise de contact.</div>
+    <div class="project-stack">HTML/CSS · JavaScript · Responsive</div>
+  </div>
 
-    </div>
+  <div class="project">
+    <div class="project-title">Archive numérique FMFOI</div>
+    <div class="project-desc">Application Android pour une organisation religieuse : documents, traduction, événements et photos réunis.</div>
+    <div class="project-stack">Android · WebView · localStorage</div>
+  </div>
 
-    <footer>
-        <p>&copy; 2026 Mihajarak. Tous droits réservés.</p>
-    </footer>
+  <div class="project">
+    <div class="project-title">Signaux de trading SMC/ICT</div>
+    <div class="project-desc">Application web en cours de développement pour l'automatisation de signaux de trading.</div>
+    <div class="project-stack">Next.js · TypeScript · En cours</div>
+  </div>
 
+  <h2>💰 Tarifs freelance</h2>
+
+  <div class="tarif-cat">Développement Web</div>
+  <div class="tarif-row"><span class="tarif-name">Site vitrine / Landing page</span><span class="tarif-price">À partir de 350$</span></div>
+  <div class="tarif-row"><span class="tarif-name">Application web sur-mesure</span><span class="tarif-price">À partir de 800$</span></div>
+  <div class="tarif-row"><span class="tarif-name">Correction & amélioration</span><span class="tarif-price">25$ / heure</span></div>
+
+  <div class="tarif-cat">Développement Mobile</div>
+  <div class="tarif-row"><span class="tarif-name">App Flutter / React Native</span><span class="tarif-price">À partir de 600$</span></div>
+  <div class="tarif-row"><span class="tarif-name">Intégration Figma → code</span><span class="tarif-price">À partir de 250$</span></div>
+
+  <div class="tarif-cat">Créatif & Contenu</div>
+  <div class="tarif-row"><span class="tarif-name">Séance photo</span><span class="tarif-price">À partir de 40$</span></div>
+  <div class="tarif-row"><span class="tarif-name">Montage vidéo</span><span class="tarif-price">À partir de 60$</span></div>
+  <div class="tarif-row"><span class="tarif-name">Rédaction de contenu</span><span class="tarif-price">0,08$ / mot</span></div>
+  <div class="tarif-row"><span class="tarif-name">Copywriting de vente</span><span class="tarif-price">À partir de 120$ / page</span></div>
+
+  <div class="tarif-cat">Hardware</div>
+  <div class="tarif-row"><span class="tarif-name">Réparation électronique</span><span class="tarif-price">À partir de 15$ / intervention</span></div>
+
+  <h2>🔗 Mes profils & liens</h2>
+  <div class="links-row">
+    <a class="link-pill" href="https://github.com/Mihajarak" target="_blank">Mon GitHub</a>
+    <a class="link-pill" href="https://www.linkedin.com/in/mihaja-fetra-rakotoniaina-749553399/" target="_blank">Mon LinkedIn</a>
+    <a class="link-pill" href="mailto:rakotoniainamihajafetra@gmail.com">Me contacter</a>
+  </div>
+
+  <footer>© 2026 Mihajarak. Tous droits réservés.</footer>
+
+</div>
 </body>
 </html>
